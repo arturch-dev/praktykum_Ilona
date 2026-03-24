@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 дні, щоб зрозуміти свої відносини | Ілона Солдатюк</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Intl-Tel-Input -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/css/intlTelInput.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Meta Pixel Code (Placeholder) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID'); // ВСТАВЬ СВОЙ ID ПИКСЕЛЯ
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        milky: '#FAF8F5',
+                        dark: '#2D1F1A',
+                        coffee: { 400: '#BCAAA4', 500: '#8D6E63', 600: '#5D4037', 800: '#3E2723' },
+                        accent: '#C4A484'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Overrides */
+        body { background-color: #FAF8F5; color: #2D1F1A; }
+        .gradient-text {
+            background: linear-gradient(90deg, #8D6E63 0%, #3E2723 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        /* Intl-tel-input integration styling */
+        .iti { width: 100%; }
+        .iti__flag-container { z-index: 10; }
+        .faq-details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-white">
+
+    <!-- ВАЖНО: ЗАГЛУШКИ ДЛЯ НАСТРОЙКИ -->
+    <script>
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_WEB_APP_URL'; 
+        const TG_BOT_URL = 'YOUR_BOT_LINK';
+        
+        // Массив европейских стран + Украина (Без RU и BY)
+        const allowedCountries = ["ua", "pl", "de", "fr", "it", "es", "gb", "ro", "cz", "sk", "hu", "at", "ch", "pt", "nl", "be", "se", "no", "dk", "fi", "ee", "lv", "lt", "md", "bg", "hr", "si", "gr", "ie"];
+    </script>
+
+    <!-- БЛОК 1: Hero -->
+    <section class="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
+        <div class="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block px-4 py-2 rounded-full bg-coffee-800 text-milky text-sm font-semibold tracking-wide uppercase">
+                        Старт 2 квітня • Безкоштовний практикум
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight gradient-text">
+                        3 ДНІ, ЩОБ ЗРОЗУМІТИ СЕБЕ, СВОГО ЧОЛОВІКА І ТЕ, ЩО МІЖ ВАМИ
+                    </h1>
+                    <p class="text-lg text-coffee-600 leading-relaxed">
+                        Для жінок, які втомились гадати — він серйозно налаштований чи ні, як себе поводити на побаченні і чому у відносинах щось постійно іде не так.
+                    </p>
+                    
+                    <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border-coffee-400/30 border">
+                        <div>
+                            <p class="text-sm text-coffee-600 mb-1">Вартість участі:</p>
+                            <div class="flex items-center gap-3">
+                                <span class="line-through text-gray-400 text-lg">2990 ₴</span>
+                                <span class="text-2xl font-bold text-coffee-800">БЕЗКОШТОВНО</span>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-right">
+                            <p class="text-xs text-coffee-600 mb-1 uppercase font-semibold">Пропозиція діє ще:</p>
+                            <div id="timer" class="text-2xl font-bold text-dark font-mono">05:00:00</div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal()" class="w-full sm:w-auto px-8 py-5 bg-coffee-800 hover:bg-dark text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-coffee-800/20 hover:scale-105">
+                        ПРИЄДНАТИСЬ БЕЗКОШТОВНО
+                    </button>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-accent/20 blur-3xl rounded-full"></div>
+                    <!-- ВСТАВЬ ПУТЬ К ФОТО 1 -->
+                    <img src="./main-photo.jpg" alt="Ілона Солдатюк" class="relative z-10 w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover aspect-[4/5]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 2: Для кого -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-4 gradient-text">ДЛЯ КОГО ЦЕЙ ПРАКТИКУМ?</h2>
+            <p class="text-center text-coffee-600 mb-16 text-lg">Цей челендж для тебе, якщо:</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Картка 1 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="help-circle" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">ТИ НЕ РОЗУМІЄШ, ЧИ СЕРЙОЗНИЙ ВІН</h3>
+                    <p class="text-coffee-600 text-sm">Ви разом вже довго, а ясності немає. Не відчуваєш впевненості у майбутньому і боїшся запитати напряму.</p>
+                </div>
+                <!-- Картка 2 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="coffee" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">НА ПОБАЧЕННЯХ НЕ ЗНАЄШ, ЯК СЕБЕ ПОВОДИТИ</h3>
+                    <p class="text-coffee-600 text-sm">Або береш все на себе, або чекаєш ініціативи і злишся. А як має бути насправді — незрозуміло.</p>
+                </div>
+                <!-- Картка 3 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="scale" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">ТИ ДАЄШ БІЛЬШЕ, НІЖ ОТРИМУЄШ</h3>
+                    <p class="text-coffee-600 text-sm">Тягнеш відносини. А у відповідь — тиша або байдужість. І думаєш: може, проблема в мені?</p>
+                </div>
+                <!-- Картка 4 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="mic-off" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">ВІН ТЕБЕ НЕ ЧУЄ</h3>
+                    <p class="text-coffee-600 text-sm">Ти говориш — він не реагує. Просиш — не чує. Не знаєш, чи варто казати, чи краще мовчати і терпіти.</p>
+                </div>
+                <!-- Картка 5 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="search" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">ШУКАЄШ ПАРУ, АЛЕ ЩОСЬ ЙДЕ НЕ ТАК</h3>
+                    <p class="text-coffee-600 text-sm">Побачення є — але до стосунків не доходить. І ти вже не розумієш, що ти робиш не так.</p>
+                </div>
+                <!-- Картка 6 -->
+                <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
+                    <i data-lucide="trending-up" class="w-10 h-10 text-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark mb-3">БІЛЬШЕ ПОТЕНЦІАЛУ</h3>
+                    <p class="text-coffee-600 text-sm">Стосунки є. Але між вами щось не так і ти не можеш зрозуміти що саме та як це змінити.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 3: Програма -->
+    <section class="py-20 bg-dark text-milky">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-4 text-white">ПРОГРАМА ПРАКТИКУМА</h2>
+            <p class="text-center text-coffee-400 mb-16 text-lg">3 ДНІ — 3 ТЕМИ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ ВІДНОСИНИ ІНАКШЕ</p>
+            
+            <div class="space-y-6">
+                <!-- День 1 -->
+                <div class="bg-coffee-800/50 border border-coffee-600 p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-accent text-dark font-bold text-2xl py-3 px-6 rounded-xl shrink-0">ДЕНЬ 1</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">ВІН СЕРЙОЗНО ЧИ ПРОСТО ПОРУЧ?</h3>
+                        <p class="text-coffee-400 mb-3">Як зрозуміти справжні наміри чоловіка. Які сигнали говорять про те, що він будує майбутнє — а які про те, що ти просто зручна. Розбираємо реальні ситуації учасниць.</p>
+                        <p class="text-sm font-semibold text-accent">Для тих, хто у стосунках, шлюбі або шукає партнера.</p>
+                    </div>
+                </div>
+                <!-- День 2 -->
+                <div class="bg-coffee-800/50 border border-coffee-600 p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-accent text-dark font-bold text-2xl py-3 px-6 rounded-xl shrink-0">ДЕНЬ 2</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">ПОБАЧЕННЯ, ПІСЛЯ ЯКОГО ВІН ДУМАЄ ПРО ТЕБЕ</h3>
+                        <p class="text-coffee-400 mb-3">Як поводитись, щоб він хотів продовження. Як заінтригувати, а не відлякати. Як перестати все брати на себе або пасивно чекати.</p>
+                        <p class="text-sm font-semibold text-accent">Для вільних жінок і тих, хто хоче повернути іскру.</p>
+                    </div>
+                </div>
+                <!-- День 3 -->
+                <div class="bg-coffee-800/50 border border-coffee-600 p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-accent text-dark font-bold text-2xl py-3 px-6 rounded-xl shrink-0">ДЕНЬ 3</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">ВАШІ ЦИФРИ НЕ БРЕШУТЬ</h3>
+                        <p class="text-coffee-400 mb-3">Цифрова психологія у відносинах. Ілона розбирає дати народження учасниць прямо в ефірі — показує сумісність пари, потенціал і те, що заважає.</p>
+                        <p class="text-sm font-semibold text-accent">Для всіх — одружених і вільних.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-white text-dark rounded-xl font-bold text-lg transition-all shadow-xl shadow-accent/20 hover:scale-105">
+                    ПРИЙНЯТИ УЧАСТЬ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 4: Результати -->
+    <section class="py-20 bg-milky">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">ЩО ЗМІНИТЬСЯ ПІСЛЯ ПРАКТИКУМУ</h2>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 bg-white p-6 rounded-xl shadow-sm border border-coffee-400/20">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
+                    <p class="text-dark font-medium text-lg">Ти зрозумієш, чи серйозний твій чоловік і що з цим робити</p>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-6 rounded-xl shadow-sm border border-coffee-400/20">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
+                    <p class="text-dark font-medium text-lg">Навчишся поводитись на побаченнях так, щоб він хотів бути поруч</p>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-6 rounded-xl shadow-sm border border-coffee-400/20">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
+                    <p class="text-dark font-medium text-lg">Перестанеш тягнути відносини сама і нарешті відчуєш баланс</p>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-6 rounded-xl shadow-sm border border-coffee-400/20">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
+                    <p class="text-dark font-medium text-lg">Дізнаєшся, що цифри говорять про тебе і твого партнера</p>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-6 rounded-xl shadow-sm border border-coffee-400/20">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
+                    <p class="text-dark font-medium text-lg">Отримаєш конкретні інструменти — без води і загальних фраз</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 5: Автор -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-xs text-coffee-600 uppercase tracking-widest font-bold mb-2">Про автора</h2>
+                    <h3 class="text-3xl lg:text-5xl font-bold mb-6 gradient-text">ХТО ПРОВОДИТЬ ПРАКТИКУМ?</h3>
+                    <p class="text-2xl font-semibold text-dark mb-6">Мене звати Ілона Солдатюк.</p>
+                    
+                    <div class="space-y-4 text-coffee-800 text-lg leading-relaxed mb-8">
+                        <p>Я пройшла тяжку хворобу, розлучення і будувала себе заново — одна, без підтримки. Я знаю, як це: носити маску «все добре», тягнути відносини і не розуміти, де твоя межа.</p>
+                        <ul class="space-y-2 mt-4">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                                <span><b>10+ років</b> у глибинній психотерапії, розстановках і роботі з жінками.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                                <span><b>Авторська методика цифрової психології</b> — коли цифри пояснюють те, що ти роками не могла зрозуміти.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <blockquote class="pl-6 border-l-4 border-accent text-xl italic text-coffee-600">
+                        «Я не даю шаблонних порад. На практикумі я розберу реальні ситуації — щоб ти точно знала, що робити у своїх відносинах.»
+                    </blockquote>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <!-- ВСТАВЬ ПУТЬ К ФОТО 2 -->
+                    <img src="./author-photo.jpg" alt="Ілона Солдатюк" class="w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 6: Фінальний CTA -->
+    <section class="py-24 relative overflow-hidden bg-coffee-800 text-center">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">ТРИ ДНІ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ ВІДНОСИНИ ІНАКШЕ</h2>
+            <p class="text-coffee-400 text-lg mb-10">
+                Ти можеш і далі гадати — серйозний він чи ні, що ти робиш не так і чому у вас не виходить. Або можеш отримати відповіді вже 2 квітня.<br><br>
+                <b>Безкоштовно. Без зобов'язань. З реальними розборами твоєї ситуації.</b>
+            </p>
+            <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-white text-dark rounded-xl font-bold text-xl transition-all shadow-2xl hover:scale-105">
+                ПРИЄДНАТИСЬ БЕЗКОШТОВНО
+            </button>
+        </div>
+    </section>
+
+    <!-- БЛОК 7: FAQ -->
+    <section class="py-20 bg-milky">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">ЧАСТІ ЗАПИТАННЯ</h2>
+            
+            <div class="space-y-4">
+                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        Я одружена, чи підійде мені практикум?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                    </summary>
+                    <div class="p-6 pt-0 text-coffee-600">
+                        Так. Перший і третій день створені саме для жінок у стосунках і шлюбі. Другий день теж буде корисний, щоб повернути іскру і по-новому подивитись на свого чоловіка.
+                    </div>
+                </details>
+
+                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        Я не заміжня і не в стосунках — чи є для мене щось корисне?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                    </summary>
+                    <div class="p-6 pt-0 text-coffee-600">
+                        Так, другий день створений саме для тебе. Ми розберемо, як поводитись на побаченнях, як заінтригувати чоловіка і що робити, щоб знайомства переростали у справжні стосунки.
+                    </div>
+                </details>
+
+                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        Чи буде запис, якщо я не встигну на прямий ефір?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                    </summary>
+                    <div class="p-6 pt-0 text-coffee-600">
+                        Так. Записи всіх ефірів будуть доступні в чаті учасниць. Ти можеш переглянути у зручний для тебе час.
+                    </div>
+                </details>
+
+                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        Я живу не в Україні, чи можу брати участь?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                    </summary>
+                    <div class="p-6 pt-0 text-coffee-600">
+                        Так, практикум онлайн. Приєднатись можна з будь-якої країни. Ефіри о 19:00 за київським часом.
+                    </div>
+                </details>
+
+                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        Мені ніколи не чіпляли нумерологія і цифри. Чи є сенс іти?
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                    </summary>
+                    <div class="p-6 pt-0 text-coffee-600">
+                        Так. Цифрова психологія — це не магія і не гороскопи. Це система, яка пояснює твою поведінку, поведінку партнера і те, що відбувається між вами. Після третього дня ти зрозумієш чому.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-dark text-center text-coffee-600 text-sm">
+        <p>&copy; 2024 Ілона Солдатюк. Всі права захищені.</p>
+    </footer>
+
+    <!-- ПОПАП ФОРМА -->
+    <div id="leadModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+            <div class="relative bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-md w-full scale-95 duration-300" id="modalContent">
+                
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-dark">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <div class="px-6 py-8 sm:p-10">
+                    <h3 class="text-2xl leading-6 font-bold text-dark text-center mb-2">Крок 1 з 2</h3>
+                    <p class="text-sm text-coffee-600 text-center mb-6">Введіть дані для доступу до практикуму</p>
+                    
+                    <form id="leadForm" class="space-y-5">
+                        <!-- Ім'я -->
+                        <div>
+                            <label class="block text-sm font-medium text-dark mb-1">Ваше ім'я</label>
+                            <input type="text" id="name" required placeholder="Ілона" 
+                                class="w-full px-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
+                            <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Ім'я не повинно містити цифр.</p>
+                        </div>
+                        
+                        <!-- Телефон -->
+                        <div>
+                            <label class="block text-sm font-medium text-dark mb-1">Ваш телефон</label>
+                            <input type="tel" id="phone" required
+                                class="w-full px-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
+                            <p id="phoneError" class="text-red-500 text-xs mt-1 hidden">Введіть коректний номер телефону.</p>
+                        </div>
+
+                        <!-- Telegram Nick -->
+                        <div>
+                            <label class="block text-sm font-medium text-dark mb-1">Ваш Telegram (Нікнейм)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-coffee-600">@</span>
+                                <input type="text" id="tgNick" required placeholder="username" 
+                                    class="w-full pl-9 pr-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-sm text-lg font-bold text-white bg-coffee-800 hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all">
+                            ОТРИМАТИ ДОСТУП
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-4">Ваші дані в безпеці. Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script>
+    <script>
+        // Инициализация иконок
+        lucide.createIcons();
+
+        // Таймер
+        function startTimer(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Зацикливаем для арбитража
+                }
+            }, 1000);
+        }
+        window.onload = function () {
+            let fiveHours = 60 * 60 * 5;
+            let display = document.querySelector('#timer');
+            startTimer(fiveHours, display);
+        };
+
+        // Логика Попапа
+        const modal = document.getElementById('leadModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            
+            // Pixel Event
+            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Настройка intl-tel-input с автоопределением по IP (GeoJS)
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto",
+            onlyCountries: allowedCountries,
+            geoIpLookup: function(callback) {
+                fetch("https://get.geojs.io/v1/ip/country.json")
+                    .then(res => res.json())
+                    .then(data => callback(data.country))
+                    .catch(() => callback("ua"));
+            },
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/utils.js"
+        });
+
+        // Валидация и Отправка Формы
+        const form = document.getElementById('leadForm');
+        const nameInput = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        const phoneError = document.getElementById('phoneError');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Регулярка для имени (без цифр)
+        const nameRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s'-]+$/;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            let isValid = true;
+
+            // Валидация Имени
+            if (!nameRegex.test(nameInput.value)) {
+                nameError.classList.remove('hidden');
+                nameInput.classList.add('border-red-500');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+                nameInput.classList.remove('border-red-500');
+            }
+
+            // Валидация Телефона
+            if (!iti.isValidNumber()) {
+                phoneError.classList.remove('hidden');
+                phoneInput.classList.add('border-red-500');
+                isValid = false;
+            } else {
+                phoneError.classList.add('hidden');
+                phoneInput.classList.remove('border-red-500');
+            }
+
+            if (!isValid) return;
+
+            // Подготовка данных
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-6 h-6 animate-spin mx-auto"></i>';
+            lucide.createIcons();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const fullPhone = iti.getNumber();
+            const tgNickInput = document.getElementById('tgNick').value.replace('@', '');
+
+            const payload = {
+                name: nameInput.value,
+                phone: fullPhone,
+                telegram: '@' + tgNickInput,
+                utm_source: urlParams.get('utm_source') || '',
+                utm_medium: urlParams.get('utm_medium') || '',
+                utm_campaign: urlParams.get('utm_campaign') || '',
+                utm_content: urlParams.get('utm_content') || '',
+                utm_term: urlParams.get('utm_term') || ''
+            };
+
+            try {
+                // Отправка в Google Таблицу
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Важно для Google Apps Script чтобы не падало на CORS
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // Pixel Lead Event
+                if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+                // Переадресация в Telegram Bot
+                window.location.href = TG_BOT_URL;
+
+            } catch (error) {
+                console.error('Помилка:', error);
+                alert('Сталася помилка. Спробуйте ще раз.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'ОТРИМАТИ ДОСТУП';
+            }
+        });
+    </script>
+</body>
+</html>
