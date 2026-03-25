@@ -66,7 +66,13 @@
 
     <script>
         const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_WEB_APP_URL'; 
-        const TG_BOT_URL = 'YOUR_BOT_LINK';
+        
+        // =====================================================================
+        // ВСТАВ ПОСИЛАННЯ НА ТЕЛЕГРАМ БОТА ТУТ (в лапках замість тексту)
+        // Саме сюди буде вести кнопка "Доєднатися" на сторінці подяки
+        // =====================================================================
+        const TG_BOT_URL = 'ТУТ_БУДЕ_ПОСИЛАННЯ_НА_БОТА'; 
+        
         const allowedCountries = ["ua", "pl", "de", "fr", "it", "es", "gb", "ro", "cz", "sk", "hu", "at", "ch", "pt", "nl", "be", "se", "no", "dk", "fi", "ee", "lv", "lt", "md", "bg", "hr", "si", "gr", "ie"];
     </script>
 
@@ -399,6 +405,27 @@
         </div>
     </div>
 
+    <!-- СТОРІНКА ПОДЯКИ (THANK YOU PAGE) -->
+    <div id="thankYouScreen" class="fixed inset-0 z-[60] hidden bg-milky flex-col items-center justify-center px-4 transition-opacity duration-500 opacity-0">
+        <div class="max-w-md w-full bg-white p-8 rounded-3xl shadow-2xl border border-coffee-400/20 text-center space-y-6 transform transition-all scale-95" id="thankYouContent">
+            
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="check" class="w-10 h-10 text-green-600"></i>
+            </div>
+            
+            <h2 class="text-3xl font-bold text-dark">Дякую за відповідь!</h2>
+            
+            <p class="text-coffee-600 text-lg leading-relaxed">
+                Натискай на кнопку і переходь в телеграм бота. Там ти знайдеш всю необхідну інформацію.
+            </p>
+            
+            <a href="#" id="tgRedirectBtn" class="mt-4 flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#2AABEE] hover:bg-[#229ED9] text-white rounded-xl font-bold text-xl transition-all shadow-xl shadow-[#2AABEE]/30 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                Доєднатися
+            </a>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script>
     <script>
@@ -407,7 +434,6 @@
         // Логіка появи плаваючої кнопки
         window.addEventListener('scroll', () => {
             const fab = document.getElementById('floatingBtn');
-            // Якщо проскролили більше 500 пікселів (перший екран) - показуємо
             if (window.scrollY > 500) {
                 fab.classList.remove('translate-y-32', 'opacity-0');
                 fab.classList.add('translate-y-0', 'opacity-100');
@@ -442,9 +468,7 @@
 
         function openModal() {
             modal.classList.remove('hidden');
-            // Ховаємо плаваючу кнопку, щоб не мішала поверх форми
             fab.style.display = 'none';
-            
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
@@ -459,9 +483,36 @@
             modalContent.classList.add('scale-95');
             setTimeout(() => { 
                 modal.classList.add('hidden'); 
-                // Повертаємо плаваючу кнопку
                 fab.style.display = 'block';
             }, 300);
+        }
+
+        // Функція для показу сторінки подяки
+        function showThankYouPage() {
+            const tyScreen = document.getElementById('thankYouScreen');
+            const tyContent = document.getElementById('thankYouContent');
+            const tgBtn = document.getElementById('tgRedirectBtn');
+            
+            // Підставляємо посилання на бота в кнопку
+            tgBtn.href = TG_BOT_URL;
+
+            // Ховаємо модалку форми, якщо вона відкрита
+            closeModal();
+            // Ховаємо плаваючу кнопку назавжди
+            fab.style.display = 'none';
+            // Ховаємо загальний скрол сторінки
+            document.body.style.overflow = 'hidden';
+
+            // Показуємо екран подяки
+            tyScreen.classList.remove('hidden');
+            tyScreen.classList.add('flex');
+            
+            setTimeout(() => {
+                tyScreen.classList.remove('opacity-0');
+                tyScreen.classList.add('opacity-100');
+                tyContent.classList.remove('scale-95');
+                tyContent.classList.add('scale-100');
+            }, 50);
         }
 
         const phoneInput = document.querySelector("#phone");
@@ -528,14 +579,20 @@
             };
 
             try {
+                // Відправка даних в Google Tables
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
+                
+                // Трекаємо лід у пікселі
                 if(typeof fbq !== 'undefined') fbq('track', 'Lead');
-                window.location.href = TG_BOT_URL;
+                
+                // ЗАМІСТЬ АВТОМАТИЧНОГО ПЕРЕХОДУ ПОКАЗУЄМО СТОРІНКУ ПОДЯКИ
+                showThankYouPage();
+
             } catch (error) {
                 console.error('Помилка:', error);
                 alert('Сталася помилка. Спробуйте ще раз.');
