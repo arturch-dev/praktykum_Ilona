@@ -70,10 +70,9 @@
         const allowedCountries = ["ua", "pl", "de", "fr", "it", "es", "gb", "ro", "cz", "sk", "hu", "at", "ch", "pt", "nl", "be", "se", "no", "dk", "fi", "ee", "lv", "lt", "md", "bg", "hr", "si", "gr", "ie"];
     </script>
 
-    <!-- БЛОК 1: Hero (ОНОВЛЕНО РОЗТАШУВАННЯ ТЕКСТУ) -->
+    <!-- БЛОК 1: Hero -->
     <section class="relative min-h-[100svh] flex flex-col justify-end pb-8 pt-[50vh] lg:pt-[35vh] bg-[url('main12.JPG')] bg-cover bg-top bg-no-repeat">
         
-        <!-- Градієнт змінено: зверху повністю прозорий, щоб не перекривати обличчя, темніє лише знизу -->
         <div class="absolute inset-0 bg-gradient-to-t from-[#1a1210] via-[#1a1210]/80 to-transparent"></div>
         
         <div class="container mx-auto px-4 max-w-4xl relative z-10 text-center flex flex-col items-center mt-auto">
@@ -88,18 +87,15 @@
             
             <div class="w-full max-w-md mx-auto flex flex-col items-center gap-4 sm:gap-6">
                 
-                <!-- Старт -->
                 <div class="border border-accent/60 text-accent px-6 py-2 rounded-xl font-semibold tracking-widest uppercase text-xs sm:text-sm w-max backdrop-blur-sm">
                     СТАРТ 2 КВІТНЯ
                 </div>
 
-                <!-- Вартість -->
                 <div class="flex items-center justify-center gap-3 text-white">
                     <span class="line-through text-gray-400 text-lg sm:text-2xl font-light">2990 грн</span>
                     <span class="text-2xl sm:text-3xl font-bold text-accent">БЕЗКОШТОВНО</span>
                 </div>
 
-                <!-- Таймер -->
                 <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-3 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
                     <div class="flex items-center gap-2">
                         <i data-lucide="hourglass" class="w-4 h-4 text-gray-400"></i>
@@ -108,7 +104,6 @@
                     <span id="timer" class="text-white font-mono font-bold text-lg">10:00:00</span>
                 </div>
 
-                <!-- Кнопка -->
                 <button onclick="openModal()" class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-black/50 hover:scale-105 border border-white/5">
                     ПРИЄДНАТИСЬ БЕЗКОШТОВНО
                 </button>
@@ -308,6 +303,7 @@
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
                         Так, і навіть більше — саме зараз найкращий час це зрозуміти. Поки ти вільна, ти можеш спокійно розібратись у собі і прийти до нових стосунків вже з розумінням того, чого хочеш і як це отримати.
+                    </div>
                 </details>
 
                 <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
@@ -343,8 +339,15 @@
         </div>
     </section>
 
+    <!-- ПЛАВАЮЧА КНОПКА (Floating Action Button) -->
+    <div id="floatingBtn" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 translate-y-32 opacity-0 transition-all duration-500 w-[90%] sm:w-auto max-w-sm pointer-events-none">
+        <button onclick="openModal()" class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-2xl shadow-black/60 border border-white/20 pointer-events-auto flex items-center justify-center gap-2 hover:scale-105">
+            ПРИЄДНАТИСЬ БЕЗКОШТОВНО
+        </button>
+    </div>
+
     <!-- Footer -->
-    <footer class="py-6 bg-dark text-center text-coffee-600 text-sm">
+    <footer class="py-6 bg-dark text-center text-coffee-600 text-sm pb-28 sm:pb-6">
         <p>&copy; 2026 Ілона Солдатюк. Всі права захищені.</p>
     </footer>
 
@@ -396,10 +399,23 @@
         </div>
     </div>
 
-    <!-- Scripts (Без змін) -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script>
     <script>
         lucide.createIcons();
+
+        // Логіка появи плаваючої кнопки
+        window.addEventListener('scroll', () => {
+            const fab = document.getElementById('floatingBtn');
+            // Якщо проскролили більше 500 пікселів (перший екран) - показуємо
+            if (window.scrollY > 500) {
+                fab.classList.remove('translate-y-32', 'opacity-0');
+                fab.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                fab.classList.add('translate-y-32', 'opacity-0');
+                fab.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
 
         function startTimer(duration, display) {
             let timer = duration, hours, minutes, seconds;
@@ -422,9 +438,13 @@
 
         const modal = document.getElementById('leadModal');
         const modalContent = document.getElementById('modalContent');
+        const fab = document.getElementById('floatingBtn');
 
         function openModal() {
             modal.classList.remove('hidden');
+            // Ховаємо плаваючу кнопку, щоб не мішала поверх форми
+            fab.style.display = 'none';
+            
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
@@ -437,7 +457,11 @@
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
             modalContent.classList.add('scale-95');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            setTimeout(() => { 
+                modal.classList.add('hidden'); 
+                // Повертаємо плаваючу кнопку
+                fab.style.display = 'block';
+            }, 300);
         }
 
         const phoneInput = document.querySelector("#phone");
