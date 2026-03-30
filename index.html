@@ -53,8 +53,9 @@
     <style>
         body { background-color: #FAF8F5; color: #2D1F1A; }
         .gradient-text {
-            background: linear-gradient(90deg, #8D6E63 0%, #3E2723 100%);
+            background: linear-gradient(to right, #fdf2f8, #eebb99);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .iti { width: 100%; }
@@ -568,6 +569,7 @@
             const tgNickInput = document.getElementById('tgNick').value.replace('@', '');
 
             const payload = {
+                sheet_id: "486433203",
                 name: nameInput.value,
                 phone: fullPhone,
                 telegram: '@' + tgNickInput,
