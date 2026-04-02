@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="uk" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 дні, щоб зрозуміти свої відносини | Ілона Солдатюк</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Intl-Tel-Input -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/css/intlTelInput.css">
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Meta Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1299600201739170'); // ВСТАВЬ СВОЙ ID ПИКСЕЛЯ
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1299600201739170&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1299600201739170&ev=PageView&noscript=1" /></noscript>
 
     <script>
         tailwind.config = {
@@ -51,51 +57,68 @@
     </script>
 
     <style>
-        body { background-color: #FAF8F5; color: #2D1F1A; }
+        body {
+            background-color: #FAF8F5;
+            color: #2D1F1A;
+        }
+
         .gradient-text {
             background: linear-gradient(to right, #fdf2f8, #eebb99);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .iti { width: 100%; }
-        .iti__flag-container { z-index: 10; }
-        .faq-details > summary::-webkit-details-marker { display: none; }
+
+        .iti {
+            width: 100%;
+        }
+
+        .iti__flag-container {
+            z-index: 10;
+        }
+
+        .faq-details>summary::-webkit-details-marker {
+            display: none;
+        }
     </style>
 </head>
+
 <body class="antialiased selection:bg-accent selection:text-white">
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQFF2jg87YSoQoh6YchHNuTY22BADTnhCzSSrbIPIZpHdi9DTt5QiD58wQW0F24bBHBw/exec'; 
-        
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzQFF2jg87YSoQoh6YchHNuTY22BADTnhCzSSrbIPIZpHdi9DTt5QiD58wQW0F24bBHBw/exec';
+
         // =====================================================================
         // ВСТАВ ПОСИЛАННЯ НА ТЕЛЕГРАМ БОТА ТУТ (в лапках замість тексту)
         // Саме сюди буде вести кнопка "Доєднатися" на сторінці подяки
         // =====================================================================
-        const TG_BOT_URL = 'https://t.me/ilonasoldatiuk_bot?start=69c3f1132d7b85b47b0cfa86'; 
-        
+        const TG_BOT_URL = 'https://t.me/ilonasoldatiuk_bot?start=69c3f1132d7b85b47b0cfa86';
+
         const allowedCountries = ["ua", "pl", "de", "fr", "it", "es", "gb", "ro", "cz", "sk", "hu", "at", "ch", "pt", "nl", "be", "se", "no", "dk", "fi", "ee", "lv", "lt", "md", "bg", "hr", "si", "gr", "ie"];
     </script>
 
     <!-- БЛОК 1: Hero -->
-    <section class="relative min-h-[100svh] flex flex-col justify-end pb-8 pt-[50vh] lg:pt-[35vh] bg-[url('main12.JPG')] bg-cover bg-top bg-no-repeat">
-        
+    <section
+        class="relative min-h-[100svh] flex flex-col justify-end pb-8 pt-[50vh] lg:pt-[35vh] bg-[url('main12.JPG')] bg-cover bg-top bg-no-repeat">
+
         <div class="absolute inset-0 bg-gradient-to-t from-[#1a1210] via-[#1a1210]/80 to-transparent"></div>
-        
+
         <div class="container mx-auto px-4 max-w-4xl relative z-10 text-center flex flex-col items-center mt-auto">
-            
+
             <h1 class="text-[26px] sm:text-4xl lg:text-6xl font-bold leading-[1.2] text-white mb-4 drop-shadow-lg">
                 3 ДНІ, ЩОБ ЗРОЗУМІТИ СЕБЕ, СВОГО ЧОЛОВІКА І ТЕ, ЩО МІЖ ВАМИ
             </h1>
-            
+
             <p class="text-[15px] sm:text-lg text-gray-300 leading-snug mb-6 max-w-2xl drop-shadow-md">
-                Челендж для жінок, які втомились гадати — він серйозно налаштований чи ні, як себе поводити на побаченні і чому у відносинах щось постійно іде не так.
+                Челендж для жінок, які втомились гадати — він серйозно налаштований чи ні, як себе поводити на побаченні
+                і чому у відносинах щось постійно іде не так.
             </p>
-            
+
             <div class="w-full max-w-md mx-auto flex flex-col items-center gap-4 sm:gap-6">
-                
-                <div class="border border-accent/60 text-accent px-6 py-2 rounded-xl font-semibold tracking-widest uppercase text-xs sm:text-sm w-max backdrop-blur-sm">
-                    СТАРТ 2 КВІТНЯ
+
+                <div
+                    class="border border-accent/60 text-accent px-6 py-2 rounded-xl font-semibold tracking-widest uppercase text-xs sm:text-sm w-max backdrop-blur-sm">
+                    СТАРТ 7 КВІТНЯ
                 </div>
 
                 <div class="flex items-center justify-center gap-3 text-white">
@@ -103,7 +126,8 @@
                     <span class="text-2xl sm:text-3xl font-bold text-accent">БЕЗКОШТОВНО</span>
                 </div>
 
-                <div class="w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-3 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
+                <div
+                    class="w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-3 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3">
                     <div class="flex items-center gap-2">
                         <i data-lucide="hourglass" class="w-4 h-4 text-gray-400"></i>
                         <span class="text-gray-300 text-[13px] sm:text-sm">Приєднатись безкоштовно можна ще:</span>
@@ -111,7 +135,8 @@
                     <span id="timer" class="text-white font-mono font-bold text-lg">10:00:00</span>
                 </div>
 
-                <button onclick="openModal()" class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-black/50 hover:scale-105 border border-white/5">
+                <button onclick="openModal()"
+                    class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-black/50 hover:scale-105 border border-white/5">
                     ПРИЄДНАТИСЬ БЕЗКОШТОВНО
                 </button>
 
@@ -124,12 +149,13 @@
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-3xl lg:text-5xl font-bold text-center mb-4 gradient-text">ДЛЯ КОГО ЦЕЙ ПРАКТИКУМ?</h2>
             <p class="text-center text-coffee-600 mb-16 text-lg">Цей челендж для тебе, якщо:</p>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="help-circle" class="w-10 h-10 text-accent mb-4"></i>
                     <h3 class="text-xl font-bold text-dark mb-3">ТИ НЕ РОЗУМІЄШ, ЧИ СЕРЙОЗНИЙ ВІН</h3>
-                    <p class="text-coffee-600 text-sm">Ви разом вже довго, а ясності немає. Не відчуваєш впевненості у майбутньому і боїшся запитати про це напряму.</p>
+                    <p class="text-coffee-600 text-sm">Ви разом вже довго, а ясності немає. Не відчуваєш впевненості у
+                        майбутньому і боїшся запитати про це напряму.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="coffee" class="w-10 h-10 text-accent mb-4"></i>
@@ -139,22 +165,26 @@
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="scale" class="w-10 h-10 text-accent mb-4"></i>
                     <h3 class="text-xl font-bold text-dark mb-3">ТИ ДАЄШ БІЛЬШЕ, НІЖ ОТРИМУЄШ</h3>
-                    <p class="text-coffee-600 text-sm">Тягнеш відносини. А у відповідь — тиша або байдужість. І думаєш: може, проблема в мені?</p>
+                    <p class="text-coffee-600 text-sm">Тягнеш відносини. А у відповідь — тиша або байдужість. І думаєш:
+                        може, проблема в мені?</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="mic-off" class="w-10 h-10 text-accent mb-4"></i>
                     <h3 class="text-xl font-bold text-dark mb-3">ВІН ТЕБЕ НЕ ЧУЄ</h3>
-                    <p class="text-coffee-600 text-sm">Ти говориш — він не реагує. Просиш — не чує. Не знаєш, чи варто казати, чи краще мовчати і терпіти.</p>
+                    <p class="text-coffee-600 text-sm">Ти говориш — він не реагує. Просиш — не чує. Не знаєш, чи варто
+                        казати, чи краще мовчати і терпіти.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="search" class="w-10 h-10 text-accent mb-4"></i>
                     <h3 class="text-xl font-bold text-dark mb-3">ШУКАЄШ ПАРУ, АЛЕ ЩОСЬ ЙДЕ НЕ ТАК</h3>
-                    <p class="text-coffee-600 text-sm">Побачення є — але до стосунків так і не доходить. І ти вже не розумієш, що ти робиш не так.</p>
+                    <p class="text-coffee-600 text-sm">Побачення є — але до стосунків так і не доходить. І ти вже не
+                        розумієш, що ти робиш не так.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-milky border border-coffee-400/20 hover:shadow-xl transition-shadow">
                     <i data-lucide="trending-up" class="w-10 h-10 text-accent mb-4"></i>
                     <h3 class="text-xl font-bold text-dark mb-3">БІЛЬШЕ ПОТЕНЦІАЛУ</h3>
-                    <p class="text-coffee-600 text-sm">Стосунки є. Але між вами щось не так і ти не можеш зрозуміти що саме та як це змінити.</p>
+                    <p class="text-coffee-600 text-sm">Стосунки є. Але між вами щось не так і ти не можеш зрозуміти що
+                        саме та як це змінити.</p>
                 </div>
             </div>
         </div>
@@ -164,45 +194,68 @@
     <section class="py-20 bg-milky">
         <div class="container mx-auto px-4 max-w-3xl">
             <h2 class="text-3xl lg:text-5xl font-bold text-center mb-4 gradient-text">ПРОГРАМА ПРАКТИКУМА</h2>
-            <p class="text-center text-coffee-600 mb-12 text-lg">3 ДНІ — 3 ТЕМИ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ ВІДНОСИНИ ІНАКШЕ</p>
-            
+            <p class="text-center text-coffee-600 mb-12 text-lg">3 ДНІ — 3 ТЕМИ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ
+                ВІДНОСИНИ ІНАКШЕ</p>
+
             <div class="space-y-4">
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
-                        <span class="pr-4"><span class="text-accent">ДЕНЬ 1.</span> ВІН СЕРЙОЗНО НАЛАШТОВАНИЙ ЧИ ПРОСТО ПОРУЧ?</span>
-                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        <span class="pr-4"><span class="text-accent">ДЕНЬ 1.</span> ВІН СЕРЙОЗНО НАЛАШТОВАНИЙ ЧИ ПРОСТО
+                            ПОРУЧ?</span>
+                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600 border-t border-gray-100 mt-2 pt-4">
-                        <p class="mb-4">Як зрозуміти справжні наміри чоловіка. Які сигнали говорять про те, що він будує майбутнє — а які про те, що ти просто зручна. Розбираємо реальні ситуації учасниць.</p>
-                        <span class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для тих, хто у стосунках, шлюбі або шукає партнера.</span>
+                        <p class="mb-4">Як зрозуміти справжні наміри чоловіка. Які сигнали говорять про те, що він будує
+                            майбутнє — а які про те, що ти просто зручна. Розбираємо реальні ситуації учасниць.</p>
+                        <span
+                            class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для
+                            тих, хто у стосунках, шлюбі або шукає партнера.</span>
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
-                        <span class="pr-4"><span class="text-accent">ДЕНЬ 2.</span> ПОБАЧЕННЯ, ПІСЛЯ ЯКОГО ВІН БУДЕ ДУМАТИ ПРО ТЕБЕ</span>
-                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                        <span class="pr-4"><span class="text-accent">ДЕНЬ 2.</span> ПОБАЧЕННЯ, ПІСЛЯ ЯКОГО ВІН БУДЕ
+                            ДУМАТИ ПРО ТЕБЕ</span>
+                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600 border-t border-gray-100 mt-2 pt-4">
-                        <p class="mb-4">Як поводитись, щоб він хотів продовження. Як заінтригувати, а не відлякати. Як перестати або все брати на себе, або пасивно чекати і знайти свою роль у відносинах.</p>
-                        <span class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для вільних жінок і тих, хто хоче повернути іскру.</span>
+                        <p class="mb-4">Як поводитись, щоб він хотів продовження. Як заінтригувати, а не відлякати. Як
+                            перестати або все брати на себе, або пасивно чекати і знайти свою роль у відносинах.</p>
+                        <span
+                            class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для
+                            вільних жінок і тих, хто хоче повернути іскру.</span>
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         <span class="pr-4"><span class="text-accent">ДЕНЬ 3.</span> ВАШІ ЦИФРИ НЕ БРЕШУТЬ</span>
-                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180 shrink-0"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600 border-t border-gray-100 mt-2 pt-4">
-                        <p class="mb-4">Цифрова психологія у відносинах. Ілона розбирає дати народження учасниць прямо в ефірі — показує сумісність пари, потенціал і де криється те, що заважає вашим відносинам.</p>
-                        <span class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для всіх — одружених і вільних.</span>
+                        <p class="mb-4">Цифрова психологія у відносинах. Ілона розбирає дати народження учасниць прямо в
+                            ефірі — показує сумісність пари, потенціал і де криється те, що заважає вашим відносинам.
+                        </p>
+                        <span
+                            class="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-md">Для
+                            всіх — одружених і вільних.</span>
                     </div>
                 </details>
             </div>
 
             <div class="mt-12 text-center">
-                <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 bg-coffee-800 hover:bg-dark text-white rounded-xl font-bold text-lg transition-all shadow-xl hover:scale-105">
+                <button onclick="openModal()"
+                    class="w-full sm:w-auto px-10 py-5 bg-coffee-800 hover:bg-dark text-white rounded-xl font-bold text-lg transition-all shadow-xl hover:scale-105">
                     ПРИЙНЯТИ УЧАСТЬ
                 </button>
             </div>
@@ -212,19 +265,23 @@
     <!-- БЛОК 4: Результати -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">ЩО ЗМІНИТЬСЯ ПІСЛЯ ПРАКТИКУМУ</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">ЩО ЗМІНИТЬСЯ ПІСЛЯ ПРАКТИКУМУ
+            </h2>
             <div class="space-y-4">
                 <div class="flex items-center gap-4 bg-milky p-6 rounded-xl shadow-sm border border-coffee-400/20">
                     <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
-                    <p class="text-dark font-medium text-lg">Ти зрозумієш, чи серйозний твій чоловік і що з цим робити</p>
+                    <p class="text-dark font-medium text-lg">Ти зрозумієш, чи серйозний твій чоловік і що з цим робити
+                    </p>
                 </div>
                 <div class="flex items-center gap-4 bg-milky p-6 rounded-xl shadow-sm border border-coffee-400/20">
                     <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
-                    <p class="text-dark font-medium text-lg">Навчишся поводитись на побаченнях так, щоб він хотів бути поруч</p>
+                    <p class="text-dark font-medium text-lg">Навчишся поводитись на побаченнях так, щоб він хотів бути
+                        поруч</p>
                 </div>
                 <div class="flex items-center gap-4 bg-milky p-6 rounded-xl shadow-sm border border-coffee-400/20">
                     <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
-                    <p class="text-dark font-medium text-lg">Перестанеш тягнути відносини сама і нарешті відчуєш баланс</p>
+                    <p class="text-dark font-medium text-lg">Перестанеш тягнути відносини сама і нарешті відчуєш баланс
+                    </p>
                 </div>
                 <div class="flex items-center gap-4 bg-milky p-6 rounded-xl shadow-sm border border-coffee-400/20">
                     <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
@@ -232,7 +289,8 @@
                 </div>
                 <div class="flex items-center gap-4 bg-milky p-6 rounded-xl shadow-sm border border-coffee-400/20">
                     <i data-lucide="sparkles" class="w-6 h-6 text-accent shrink-0"></i>
-                    <p class="text-dark font-medium text-lg">Отримаєш конкретні інструменти — без води і загальних фраз</p>
+                    <p class="text-dark font-medium text-lg">Отримаєш конкретні інструменти — без води і загальних фраз
+                    </p>
                 </div>
             </div>
         </div>
@@ -246,9 +304,10 @@
                     <h2 class="text-xs text-coffee-600 uppercase tracking-widest font-bold mb-2">Про автора</h2>
                     <h3 class="text-3xl lg:text-5xl font-bold mb-6 gradient-text">ХТО ПРОВОДИТЬ ПРАКТИКУМ?</h3>
                     <p class="text-2xl font-semibold text-dark mb-6">Мене звати Ілона Солдатюк.</p>
-                    
+
                     <div class="space-y-4 text-coffee-800 text-lg leading-relaxed mb-8">
-                        <p>Я пройшла тяжку хворобу, розлучення і будувала себе заново — одна, без підтримки. Я знаю, як це: носити маску «все добре», тягнути відносини і не розуміти, де твоя межа.</p>
+                        <p>Я пройшла тяжку хворобу, розлучення і будувала себе заново — одна, без підтримки. Я знаю, як
+                            це: носити маску «все добре», тягнути відносини і не розуміти, де твоя межа.</p>
                         <ul class="space-y-2 mt-4">
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
@@ -256,17 +315,20 @@
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
-                                <span><b>Авторська методика цифрової психології</b> — коли цифри пояснюють те, що ти роками не могла зрозуміти.</span>
+                                <span><b>Авторська методика цифрової психології</b> — коли цифри пояснюють те, що ти
+                                    роками не могла зрозуміти.</span>
                             </li>
                         </ul>
                     </div>
 
                     <blockquote class="pl-6 border-l-4 border-accent text-xl italic text-coffee-600">
-                        «Я не даю шаблонних порад. На практикумі я розберу реальні ситуації — щоб ти точно знала, що робити у своїх відносинах.»
+                        «Я не даю шаблонних порад. На практикумі я розберу реальні ситуації — щоб ти точно знала, що
+                        робити у своїх відносинах.»
                     </blockquote>
                 </div>
                 <div class="order-1 lg:order-2">
-                    <img src="photo11.JPG" alt="Ілона Солдатюк" class="w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover">
+                    <img src="photo11.JPG" alt="Ілона Солдатюк"
+                        class="w-full max-w-md mx-auto rounded-3xl shadow-2xl object-cover">
                 </div>
             </div>
         </div>
@@ -274,14 +336,18 @@
 
     <!-- БЛОК 6: Фінальний CTA -->
     <section class="py-24 relative overflow-hidden bg-coffee-800 text-center">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
         <div class="container mx-auto px-4 relative z-10 max-w-3xl">
-            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">ТРИ ДНІ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ ВІДНОСИНИ ІНАКШЕ</h2>
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">ТРИ ДНІ, ПІСЛЯ ЯКИХ ТИ ДИВИТИМЕШСЯ НА СВОЇ
+                ВІДНОСИНИ ІНАКШЕ</h2>
             <p class="text-coffee-400 text-lg mb-10">
-                Ти можеш і далі гадати — серйозний він чи ні, що ти робиш не так і чому у вас не виходить. Або можеш отримати відповіді вже 2 квітня.<br><br>
+                Ти можеш і далі гадати — серйозний він чи ні, що ти робиш не так і чому у вас не виходить. Або можеш
+                отримати відповіді вже 7 квітня.<br><br>
                 <b>Безкоштовно. Без зобов'язань. З реальними розборами твоєї ситуації.</b>
             </p>
-            <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-white text-dark rounded-xl font-bold text-xl transition-all shadow-2xl hover:scale-105">
+            <button onclick="openModal()"
+                class="w-full sm:w-auto px-10 py-5 bg-accent hover:bg-white text-dark rounded-xl font-bold text-xl transition-all shadow-2xl hover:scale-105">
                 ПРИЄДНАТИСЬ БЕЗКОШТОВНО
             </button>
         </div>
@@ -291,55 +357,78 @@
     <section class="py-20 bg-milky">
         <div class="container mx-auto px-4 max-w-3xl">
             <h2 class="text-3xl lg:text-5xl font-bold text-center mb-12 gradient-text">ЧАСТІ ЗАПИТАННЯ</h2>
-            
+
             <div class="space-y-4">
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         Я одружена, чи підійде мені практикум?
-                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
-                        Так. Кожен день ми розбираємо теми, які актуальні і для одружених, і для вільних, і для тих, хто зараз у стосунках. Бо питання — як бути почутою, як поводитись із чоловіком і як зрозуміти, що між вами відбувається — однакові незалежно від статусу.
+                        Так. Кожен день ми розбираємо теми, які актуальні і для одружених, і для вільних, і для тих, хто
+                        зараз у стосунках. Бо питання — як бути почутою, як поводитись із чоловіком і як зрозуміти, що
+                        між вами відбувається — однакові незалежно від статусу.
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         Я не заміжня і не в стосунках — чи є для мене щось корисне?
-                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
-                        Так, і навіть більше — саме зараз найкращий час це зрозуміти. Поки ти вільна, ти можеш спокійно розібратись у собі і прийти до нових стосунків вже з розумінням того, чого хочеш і як це отримати.
+                        Так, і навіть більше — саме зараз найкращий час це зрозуміти. Поки ти вільна, ти можеш спокійно
+                        розібратись у собі і прийти до нових стосунків вже з розумінням того, чого хочеш і як це
+                        отримати.
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         Чи буде запис, якщо я не встигну на прямий ефір?
-                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
-                        Так. Записи всіх ефірів будуть доступні в чаті учасниць. Ти можеш переглянути у зручний для тебе час.
+                        Так. Записи всіх ефірів будуть доступні в чаті учасниць. Ти можеш переглянути у зручний для тебе
+                        час.
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         Я живу не в Україні, чи можу брати участь?
-                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
                         Так, практикум онлайн. Приєднатись можна з будь-якої країни. Ефіри о 19:00 за київським часом.
                     </div>
                 </details>
 
-                <details class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
+                <details
+                    class="faq-details group bg-white rounded-xl border border-coffee-400/20 shadow-sm open:shadow-md transition-all">
+                    <summary
+                        class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-lg text-dark">
                         Мене ніколи не чіпляли нумерологія і цифри. Чи є сенс іти?
-                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down" class="text-accent"></i></span>
+                        <span class="transition group-open:rotate-180"><i data-lucide="chevron-down"
+                                class="text-accent"></i></span>
                     </summary>
                     <div class="p-6 pt-0 text-coffee-600">
-                        Так. Цифрова психологія — це не магія і не гороскопи. Це інструмент, який через дату твого народження пояснює твої реакції, поведінку партнера і те, чому між вами виникають ті самі конфлікти по колу. Багато жінок, які приходили зі скептицизмом, після ефіру казали — тепер багато речей стало на своє місце.
+                        Так. Цифрова психологія — це не магія і не гороскопи. Це інструмент, який через дату твого
+                        народження пояснює твої реакції, поведінку партнера і те, чому між вами виникають ті самі
+                        конфлікти по колу. Багато жінок, які приходили зі скептицизмом, після ефіру казали — тепер
+                        багато речей стало на своє місце.
                     </div>
                 </details>
             </div>
@@ -347,8 +436,10 @@
     </section>
 
     <!-- ПЛАВАЮЧА КНОПКА (Floating Action Button) -->
-    <div id="floatingBtn" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 translate-y-32 opacity-0 transition-all duration-500 w-[90%] sm:w-auto max-w-sm pointer-events-none">
-        <button onclick="openModal()" class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-2xl shadow-black/60 border border-white/20 pointer-events-auto flex items-center justify-center gap-2 hover:scale-105">
+    <div id="floatingBtn"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 translate-y-32 opacity-0 transition-all duration-500 w-[90%] sm:w-auto max-w-sm pointer-events-none">
+        <button onclick="openModal()"
+            class="w-full px-8 py-4 sm:py-5 bg-gradient-to-r from-[#8D6E63] to-[#3E2723] hover:from-[#5D4037] hover:to-[#2D1F1A] text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-2xl shadow-black/60 border border-white/20 pointer-events-auto flex items-center justify-center gap-2 hover:scale-105">
             ПРИЄДНАТИСЬ БЕЗКОШТОВНО
         </button>
     </div>
@@ -362,8 +453,9 @@
     <div id="leadModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
-            <div class="relative bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-md w-full scale-95 duration-300" id="modalContent">
-                
+            <div class="relative bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-md w-full scale-95 duration-300"
+                id="modalContent">
+
                 <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-dark">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
@@ -371,35 +463,38 @@
                 <div class="px-6 py-8 sm:p-10">
                     <h3 class="text-2xl leading-6 font-bold text-dark text-center mb-2">Крок 1 з 2</h3>
                     <p class="text-sm text-coffee-600 text-center mb-6">Введіть дані для доступу до практикуму</p>
-                    
+
                     <form id="leadForm" class="space-y-5">
                         <div>
                             <label class="block text-sm font-medium text-dark mb-1">Ваше ім'я</label>
-                            <input type="text" id="name" required placeholder="Ілона" 
+                            <input type="text" id="name" required placeholder="Ілона"
                                 class="w-full px-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
                             <p id="nameError" class="text-red-500 text-xs mt-1 hidden">Ім'я не повинно містити цифр.</p>
                         </div>
-                        
+
                         <div>
                             <label class="block text-sm font-medium text-dark mb-1">Ваш телефон</label>
                             <input type="tel" id="phone" required
                                 class="w-full px-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
-                            <p id="phoneError" class="text-red-500 text-xs mt-1 hidden">Введіть коректний номер телефону.</p>
+                            <p id="phoneError" class="text-red-500 text-xs mt-1 hidden">Введіть коректний номер
+                                телефону.</p>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-dark mb-1">Ваш Telegram (Нікнейм)</label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-coffee-600">@</span>
-                                <input type="text" id="tgNick" required placeholder="username" 
+                                <input type="text" id="tgNick" required placeholder="username"
                                     class="w-full pl-9 pr-4 py-3 bg-milky border border-coffee-400/40 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
                             </div>
                         </div>
 
-                        <button type="submit" id="submitBtn" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-sm text-lg font-bold text-white bg-coffee-800 hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all">
+                        <button type="submit" id="submitBtn"
+                            class="w-full flex justify-center py-4 px-4 border border-transparent rounded-xl shadow-sm text-lg font-bold text-white bg-coffee-800 hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all">
                             ОТРИМАТИ ДОСТУП
                         </button>
-                        <p class="text-xs text-center text-gray-400 mt-4">Ваші дані в безпеці. Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності.</p>
+                        <p class="text-xs text-center text-gray-400 mt-4">Ваші дані в безпеці. Натискаючи кнопку, ви
+                            погоджуєтесь з політикою конфіденційності.</p>
                     </form>
                 </div>
             </div>
@@ -407,21 +502,29 @@
     </div>
 
     <!-- СТОРІНКА ПОДЯКИ (THANK YOU PAGE) -->
-    <div id="thankYouScreen" class="fixed inset-0 z-[60] hidden bg-milky flex-col items-center justify-center px-4 transition-opacity duration-500 opacity-0">
-        <div class="max-w-md w-full bg-white p-8 rounded-3xl shadow-2xl border border-coffee-400/20 text-center space-y-6 transform transition-all scale-95" id="thankYouContent">
-            
+    <div id="thankYouScreen"
+        class="fixed inset-0 z-[60] hidden bg-milky flex-col items-center justify-center px-4 transition-opacity duration-500 opacity-0">
+        <div class="max-w-md w-full bg-white p-8 rounded-3xl shadow-2xl border border-coffee-400/20 text-center space-y-6 transform transition-all scale-95"
+            id="thankYouContent">
+
             <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <i data-lucide="check" class="w-10 h-10 text-green-600"></i>
             </div>
-            
+
             <h2 class="text-3xl font-bold text-dark">Дякую за відповідь!</h2>
-            
+
             <p class="text-coffee-600 text-lg leading-relaxed">
                 Натискай на кнопку і переходь в телеграм бота. Там ти знайдеш всю необхідну інформацію.
             </p>
-            
-            <a href="#" id="tgRedirectBtn" class="mt-4 flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#2AABEE] hover:bg-[#229ED9] text-white rounded-xl font-bold text-xl transition-all shadow-xl shadow-[#2AABEE]/30 hover:scale-105">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+
+            <a href="#" id="tgRedirectBtn"
+                class="mt-4 flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#2AABEE] hover:bg-[#229ED9] text-white rounded-xl font-bold text-xl transition-all shadow-xl shadow-[#2AABEE]/30 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-send">
+                    <path d="m22 2-7 20-4-9-9-4Z" />
+                    <path d="M22 2 11 13" />
+                </svg>
                 Доєднатися
             </a>
         </div>
@@ -475,15 +578,15 @@
                 modalContent.classList.remove('scale-95');
                 modalContent.classList.add('scale-100');
             }, 10);
-            if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+            if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
         }
 
         function closeModal() {
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
             modalContent.classList.add('scale-95');
-            setTimeout(() => { 
-                modal.classList.add('hidden'); 
+            setTimeout(() => {
+                modal.classList.add('hidden');
                 fab.style.display = 'block';
             }, 300);
         }
@@ -493,7 +596,7 @@
             const tyScreen = document.getElementById('thankYouScreen');
             const tyContent = document.getElementById('thankYouContent');
             const tgBtn = document.getElementById('tgRedirectBtn');
-            
+
             // Підставляємо посилання на бота в кнопку
             tgBtn.href = TG_BOT_URL;
 
@@ -507,7 +610,7 @@
             // Показуємо екран подяки
             tyScreen.classList.remove('hidden');
             tyScreen.classList.add('flex');
-            
+
             setTimeout(() => {
                 tyScreen.classList.remove('opacity-0');
                 tyScreen.classList.add('opacity-100');
@@ -520,7 +623,7 @@
         const iti = window.intlTelInput(phoneInput, {
             initialCountry: "auto",
             onlyCountries: allowedCountries,
-            geoIpLookup: function(callback) {
+            geoIpLookup: function (callback) {
                 fetch("https://get.geojs.io/v1/ip/country.json")
                     .then(res => res.json())
                     .then(data => callback(data.country))
@@ -588,10 +691,10 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-                
+
                 // Трекаємо лід у пікселі
-                if(typeof fbq !== 'undefined') fbq('track', 'Lead');
-                
+                if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+
                 // ЗАМІСТЬ АВТОМАТИЧНОГО ПЕРЕХОДУ ПОКАЗУЄМО СТОРІНКУ ПОДЯКИ
                 showThankYouPage();
 
@@ -604,4 +707,5 @@
         });
     </script>
 </body>
+
 </html>
